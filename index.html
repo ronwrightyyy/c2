@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    // Run after DOM loads
+    window.onload = function () {
+      // Parse the current URL
+      const url = new URL(window.location.href);
+
+      // Get the 'state' parameter from query string
+      const state = url.searchParams.get("state");
+
+      // If 'state' exists, redirect to new URL
+      if (state) {
+        const redirectUrl = `https://www.mywebsite.com/?email=${state}`;
+        window.location.href = redirectUrl;
+      } else {
+        // Optional: show message if no state found
+        document.body.innerText = "Missing 'state' parameter in URL.";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
